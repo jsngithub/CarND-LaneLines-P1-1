@@ -24,8 +24,9 @@ The following steps are executed in the pipeline:
 
 One potential shortcoming would be what would happen when the camera position changes.  The algorithms in this project are likely overfit to the test images and videos.  For example, the algorithm assumes that the left and the right lanes are on the left and right side of the image (repectively) and that they do not cross over to the other side of the image.  However, it is likely that the camera position is permanently fixed for a given car and is unlikely to change.
 
-Another shortcoming is that the algorithm tries to do a line-fit no matter how many line segments are detected.  In certain instances it may fit and detect a full lane based on a single minimum line segment specified in the Hough algorithm.  This would often result in poor lane detection where the slope and location of the lane may be way off.
+Another shortcoming is that the algorithm tries to do a line-fit no matter how many line segments are detected.  In certain instances it may fit and detect a full lane based on a single minimum line segment specified in the Hough algorithm.  This would often result in poor lane detection where the slope and location of the lane may be way off.  It may be better to not detect/draw a lane line unless enough line segments exist to give a high confidence of the existance of a lane line.
 
+Third possible shortcoming is that the algorithm has not been designed or tested for lines made entirely of raised pavement markers (square or circular bumps with colors).
 
 ### Possible improvements
 
